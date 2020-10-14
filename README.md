@@ -10,7 +10,7 @@ Start with `mdviewer markdownfile`.
 mdviewer README.md
 ```
 
-When started, [glamour](github.com/charmbracelet/glamour)
+When started, [glamour](https://github.com/charmbracelet/glamour)
 It is rendered and displayed in.
 
 * Press the `]` key to see the original file.
