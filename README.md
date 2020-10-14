@@ -2,6 +2,8 @@
 
 This is a sample using the [ov(oviewer)](https://github.com/noborus/ov) package.
 
+![docs/mdviewer.gif](docs/mdviewer.gif)
+
 Start with `mdviewer markdownfile`.
 
 ```sh
