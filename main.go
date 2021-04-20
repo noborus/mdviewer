@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"io/ioutil"
+	"log"
 	"os"
 
 	"github.com/charmbracelet/glamour"
@@ -11,43 +12,48 @@ import (
 
 func main() {
 	fileName := os.Args[1]
+
+	r, _ := glamour.NewTermRenderer(
+		glamour.WithWordWrap(0),
+	)
+
 	source, err := ioutil.ReadFile(fileName)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
-	result, err := glamour.Render(string(source), "dark")
+	result, err := r.Render(string(source))
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	buff := bytes.NewBuffer([]byte(result))
 	render, err := oviewer.NewDocument()
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	render.FileName = fileName + "(Render)"
-	err = render.ReadAll(ioutil.NopCloser(buff))
+	err = render.ReadAll(buff)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	original, err := oviewer.NewDocument()
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	original.FileName = fileName
-	err = original.ReadAll(ioutil.NopCloser(bytes.NewBuffer(source)))
+	err = original.ReadAll(bytes.NewBuffer(source))
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	root, err := oviewer.NewOviewer(render, original)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	err = root.Run()
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 }
