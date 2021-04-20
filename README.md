@@ -4,14 +4,13 @@ This is a sample using the [ov(oviewer)](https://github.com/noborus/ov) package.
 
 ![docs/mdviewer.gif](docs/mdviewer.gif)
 
-Start with `mdviewer markdownfile`.
+Start with `mdviewer markdown file`.
 
 ```sh
 mdviewer README.md
 ```
 
-When started, [glamour](https://github.com/charmbracelet/glamour)
-It is rendered and displayed in.
+Rendered and displayed by [glamour](https://github.com/charmbracelet/glamour).
 
 * Press the `]` key to see the original file.
 * Press the `[` key to return.
