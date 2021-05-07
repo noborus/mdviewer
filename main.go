@@ -13,9 +13,13 @@ import (
 func main() {
 	fileName := os.Args[1]
 
-	r, _ := glamour.NewTermRenderer(
+	r, err := glamour.NewTermRenderer(
+		glamour.WithAutoStyle(),
 		glamour.WithWordWrap(0),
 	)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	source, err := ioutil.ReadFile(fileName)
 	if err != nil {
