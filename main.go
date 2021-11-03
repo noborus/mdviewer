@@ -55,7 +55,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	root.Incsearch = true
 	err = root.Run()
 	if err != nil {
 		log.Fatal(err)
