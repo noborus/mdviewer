@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"io/ioutil"
 	"log"
 	"os"
 
@@ -21,7 +20,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	source, err := ioutil.ReadFile(fileName)
+	source, err := os.ReadFile(fileName)
 	if err != nil {
 		log.Fatal(err)
 	}
