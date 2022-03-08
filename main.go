@@ -10,6 +10,9 @@ import (
 )
 
 func main() {
+	if len(os.Args) <= 1 {
+		log.Fatal("No file")
+	}
 	fileName := os.Args[1]
 
 	r, err := glamour.NewTermRenderer(
