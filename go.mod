@@ -6,6 +6,6 @@ require (
 	github.com/aymanbagabas/go-osc52 v1.2.1 // indirect
 	github.com/charmbracelet/glamour v0.6.0
 	github.com/dlclark/regexp2 v1.7.0 // indirect
-	github.com/noborus/ov v0.14.1
+	github.com/noborus/ov v0.14.2
 	github.com/yuin/goldmark v1.5.3 // indirect
 )
