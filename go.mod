@@ -8,8 +8,7 @@ require (
 	github.com/dlclark/regexp2 v1.8.1 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.22 // indirect
 	github.com/muesli/termenv v0.14.0 // indirect
-	github.com/noborus/ov v0.15.0
+	github.com/noborus/ov v0.30.0
 	github.com/yuin/goldmark v1.5.4 // indirect
-	golang.org/x/exp v0.0.0-20230306221820-f0f767cdffd6 // indirect
 	golang.org/x/net v0.8.0 // indirect
 )
