@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/charmbracelet/glamour v0.6.0
-	github.com/noborus/ov v0.33.1
+	github.com/noborus/ov v0.33.2
 )
 
 require (
