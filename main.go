@@ -1,65 +1,61 @@
 package main
 
 import (
-	"bytes"
-	"log"
+	"fmt"
 	"os"
 
-	"github.com/charmbracelet/glamour"
-	"github.com/noborus/ov/oviewer"
+	"github.com/spf13/cobra"
 )
 
+var (
+	// Version represents the version.
+	Version = "dev"
+	// Revision set "git rev-parse --short HEAD".
+	Revision = "HEAD"
+)
+
+var only bool
+
 func main() {
-	if len(os.Args) <= 1 {
-		log.Fatal("No file")
+	if err := rootCmd.Execute(); err != nil {
+		os.Exit(1)
 	}
-	fileName := os.Args[1]
+}
 
-	r, err := glamour.NewTermRenderer(
-		glamour.WithAutoStyle(),
-		glamour.WithWordWrap(0),
-	)
-	if err != nil {
-		log.Fatal(err)
-	}
+// rootCmd represents the base command when called without any subcommands
+var rootCmd = &cobra.Command{
+	Use:     "mdviewer fileName.md",
+	Short:   "markdown viewer",
+	Version: fmt.Sprintf("%s (rev: %s)", Version, Revision),
+	Long: `markdown viewer.
+Render and display markdown on the terminal`,
+	Args: cobra.MinimumNArgs(1),
+	Run: func(cmd *cobra.Command, args []string) {
+		if len(args) == 0 {
+			cmd.Help()
+			return
+		}
 
-	source, err := os.ReadFile(fileName)
-	if err != nil {
-		log.Fatal(err)
-	}
+		mdViewer, err := MDViewer(only, args)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
 
-	result, err := r.Render(string(source))
-	if err != nil {
-		log.Fatal(err)
-	}
-	buff := bytes.NewBuffer([]byte(result))
-	render, err := oviewer.NewDocument()
-	if err != nil {
-		log.Fatal(err)
-	}
-	render.FileName = fileName + "(Render)"
-	err = render.ReadAll(buff)
-	if err != nil {
-		log.Fatal(err)
-	}
+		if err = mdViewer.Run(); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+	},
+}
 
-	original, err := oviewer.NewDocument()
-	if err != nil {
-		log.Fatal(err)
-	}
-	original.FileName = fileName
-	err = original.ReadAll(bytes.NewBuffer(source))
-	if err != nil {
-		log.Fatal(err)
-	}
+// Execute adds all child commands to the root command and sets flags appropriately.
+// This is called by main.main(). It only needs to happen once to the rootCmd.
+func Execute() {
+	cobra.CheckErr(rootCmd.Execute())
+}
 
-	root, err := oviewer.NewOviewer(render, original)
-	if err != nil {
-		log.Fatal(err)
-	}
-	root.Incsearch = true
-	err = root.Run()
-	if err != nil {
-		log.Fatal(err)
-	}
+func init() {
+	cobra.OnInitialize()
+	rootCmd.PersistentFlags().BoolVarP(&only, "only", "o", false, "markdown render only")
 }
