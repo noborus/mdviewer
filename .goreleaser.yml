@@ -1,0 +1,80 @@
+before:
+  hooks:
+    - go mod tidy
+    - go mod vendor
+builds:
+  -
+    id: mdviewer-linux
+    binary: mdviewer
+    ldflags:
+      - -X main.Version={{.Version}}
+      - -X main.Revision={{.ShortCommit}}
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm
+      - arm64
+  -
+    id: mdviewer-other
+    binary: mdviewer
+    ldflags:
+      - -X main.Version={{.Version}}
+      - -X main.Revision={{.ShortCommit}}
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - windows
+      - freebsd
+    goarch:
+      - '386'
+      - amd64
+      - arm
+      - arm64
+
+archives:
+  -
+    id: mdviewer-archives
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    builds:
+    - mdviewer-linux
+    - mdviewer-other
+    files:
+      - LICENSE
+      - README.md
+    format: zip
+
+nfpms:
+  -
+    id: mdviewer-nfpms
+    file_name_template: "{{ .ProjectName }}_{{ .Version }}-1_{{ .Arch }}"
+    builds:
+    - mdviewer-linux
+    homepage: https://github.com/noborus/mdviewer
+    maintainer: Noboru Saito <noborusai@gmail.com>
+    description: "markdown viewer"
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/bin
+
+brews:
+  -
+    name: mdviewer
+    repository:
+      owner: noborus
+      name: homebrew-tap
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+    commit_author:
+      name: noborus
+      email: noborusai@gmail.com
+    homepage: https://github.com/noborus/mdviewer
+    description: "markdown viewer"
+    test:
+      system "#{bin}/mdviewer --version"
+    install:
+      bin.install "mdviewer"
