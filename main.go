@@ -24,7 +24,7 @@ func main() {
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:     "mdviewer fileName.md",
+	Use:     "mdviewer [flags] [FILE...]",
 	Short:   "markdown viewer",
 	Version: fmt.Sprintf("%s (rev: %s)", Version, Revision),
 	Long: `markdown viewer.
@@ -58,4 +58,5 @@ func Execute() {
 func init() {
 	cobra.OnInitialize()
 	rootCmd.PersistentFlags().BoolVarP(&only, "only", "o", false, "markdown render only")
+	rootCmd.DisableFlagsInUseLine = true
 }
