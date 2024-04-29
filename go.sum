@@ -75,8 +75,8 @@ github.com/muesli/termenv v0.15.2 h1:GohcuySI0QmI3wN8Ok9PtKGkgkFIk7y6Vpb5PvrY+Wo
 github.com/muesli/termenv v0.15.2/go.mod h1:Epx+iuz8sNs7mNKhxzH4fWXGNpZwUaJKRS1noLXviQ8=
 github.com/noborus/guesswidth v0.3.4 h1:+iKmbm0iFTS3pksIOKQQvLVZVOKNZHavqJoFK2mPoTQ=
 github.com/noborus/guesswidth v0.3.4/go.mod h1:2F1sqiazKIwuSRjQTweQHPFJcjV5375jYUrTik9/V5k=
-github.com/noborus/ov v0.34.0 h1:/5i1Uf68hnpZQXWv2AkX1BuBIofqkHQjU7tT8KK0k1U=
-github.com/noborus/ov v0.34.0/go.mod h1:tLouYLv5yRopVKbJff+n6oQKyQlFIfsHzpypDQegdzM=
+github.com/noborus/ov v0.34.1 h1:6TDz8U0t4Rzogpw5DpOoTfiwJRsW8PJ14Xb1kyvrdZM=
+github.com/noborus/ov v0.34.1/go.mod h1:tLouYLv5yRopVKbJff+n6oQKyQlFIfsHzpypDQegdzM=
 github.com/olekukonko/tablewriter v0.0.5 h1:P2Ga83D34wi1o9J6Wh1mRuqd4mF/x/lgBS7N7AbDhec=
 github.com/olekukonko/tablewriter v0.0.5/go.mod h1:hPp6KlRPjbx+hW8ykQs1w3UBbZlj6HuIJcUGPhkA7kY=
 github.com/pelletier/go-toml/v2 v2.2.1 h1:9TA9+T8+8CUCO2+WYnDLCgrYi9+omqKXyjDtosvtEhg=
