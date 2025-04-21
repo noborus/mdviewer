@@ -83,8 +83,8 @@ github.com/muesli/termenv v0.16.0 h1:S5AlUN9dENB57rsbnkPyfdGuWIlkmzJjbFf0Tf5FWUc
 github.com/muesli/termenv v0.16.0/go.mod h1:ZRfOIKPFDYQoDFF4Olj7/QJbW60Ol/kL1pU3VfY/Cnk=
 github.com/noborus/guesswidth v0.4.0 h1:+PPh+Z+GM4mKmVrhYR4lpjeyBuLMSVo2arM+VErdHIc=
 github.com/noborus/guesswidth v0.4.0/go.mod h1:ghA6uh9RcK+uSmaDDmBMj/tRZ3BSpspDP6DMF5Xk3bc=
-github.com/noborus/ov v0.40.0 h1:J2EaRhkgiNg4UAtW/wDe2Q9WUOdusIk7lJkpd6xVHHk=
-github.com/noborus/ov v0.40.0/go.mod h1:a0BsKsyVViet/4RrhBNuqArTCbdH0MVOm6w/6upVQ4s=
+github.com/noborus/ov v0.40.1 h1:ERWdZaik8sLpH//56YKAi5jMiILYBxVfPxKKufOtvJw=
+github.com/noborus/ov v0.40.1/go.mod h1:a0BsKsyVViet/4RrhBNuqArTCbdH0MVOm6w/6upVQ4s=
 github.com/noborus/tcellansi v0.0.0-20250320075053-376e9cb3c42b h1:5EpdRpG4A6J1vK/vwVLczm3l1hB4KwmlqHdsFgfTffc=
 github.com/noborus/tcellansi v0.0.0-20250320075053-376e9cb3c42b/go.mod h1:uZyUH8CuoepBfZgDzh8xV3z1sZFAw97hN8otIuZT5jA=
 github.com/pelletier/go-toml/v2 v2.2.4 h1:mye9XuhQ6gvn5h28+VilKrrPoQVanw5PMw/TB0t5Ec4=
