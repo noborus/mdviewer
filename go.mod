@@ -7,7 +7,7 @@ toolchain go1.24.1
 require (
 	github.com/charmbracelet/glamour v0.10.0
 	github.com/noborus/ov v0.45.1
-	github.com/spf13/cobra v1.10.1
+	github.com/spf13/cobra v1.10.2
 )
 
 require (
