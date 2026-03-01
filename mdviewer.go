@@ -34,7 +34,6 @@ func MDViewer(only bool, args []string) (*oviewer.Root, error) {
 	}
 
 	return oviewer.NewOviewer(documents...)
-
 }
 
 // mdDocuments returns markDown documents (rendered and original).
