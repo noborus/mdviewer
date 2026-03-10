@@ -3,7 +3,7 @@ module github.com/noborus/mdviewer
 go 1.25.0
 
 require (
-	github.com/charmbracelet/glamour v0.10.0
+	github.com/charmbracelet/glamour v1.0.0
 	github.com/noborus/ov v0.51.1
 	github.com/spf13/cobra v1.10.2
 )
